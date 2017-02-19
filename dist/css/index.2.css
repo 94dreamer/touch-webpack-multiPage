@@ -1,0 +1,99 @@
+@charset "UTF-8";
+html, body, header, section, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, img {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  font-size: 16px;
+  font-family: "Microsoft YaHei","Hiragino Sans GB W3","Heiti SC",Arial,sans-serif;
+  min-width: 320px; }
+
+input[type='text'], input[type='password'], input[type='search'] {
+  font-family: "Fakt";
+  font-weight: 400; }
+
+h1, h2 {
+  font-size: 100%;
+  font-weight: normal; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  blr: expression(this.onFocus=this.blur()); }
+
+a:hover {
+  text-decoration: underline;
+  outline: 0; }
+
+a:active {
+  text-decoration: none;
+  outline: 0; }
+
+a:focus, input, textarea, button {
+  outline: 0; }
+
+img {
+  border: 0 none;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic; }
+
+/*显示消失*/
+.dn {
+  display: none !important; }
+
+.db {
+  display: block; }
+
+/*清除浮动*/
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+/*圆角*/
+html, body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+body {
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto; }
+
+/*通用背景路径*/
+* {
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -webkit-box-sizing: border-box;
+  /* Safari */
+  box-sizing: border-box; }
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.notfound {
+  width: 100%;
+  background: #dc3d39;
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  -webkit-transition: all .1s;
+  transition: all .1s; }
+  .notfound img {
+    display: block;
+    width: 100%; }
