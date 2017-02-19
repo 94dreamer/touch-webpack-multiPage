@@ -1,0 +1,17 @@
+@charset "utf-8";
+@import "./_com";
+
+//颜色
+$red: #dc3d39;
+$gray: #b4b4b4;
+
+.notfound {
+  width: 100%;
+  background: $red;
+  transform: rotate(15deg);
+  transition: all .1s;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
