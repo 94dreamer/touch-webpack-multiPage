@@ -24,10 +24,10 @@ module.exports = {
   },
   devtools: 'cheap-module-eval-source-map',
   entry: {
-    index: [
+    home: [
       /*'webpack-dev-server/client?http://localhost:8080',
        'webpack/hot/dev-server',*/
-      './src/js/index.js'
+      './src/js/home.js'
     ],
     detail: [
       './src/js/detail.js'
@@ -114,7 +114,7 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'commom',// 将公共模块提取，生成名为`vendors`的chunk
-      chunks: ['index', 'datail'], //提取哪些模块共有的部分
+      chunks: ['home', 'detail'], //提取哪些模块共有的部分
       minChunks: 3
     }),
     new webpack.optimize.DedupePlugin(),//删除类似的重复代码
@@ -131,12 +131,12 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),//热加载
     new HtmlWebpackPlugin({
-      template: './index.html',//html模板路径
+      template: './home.html',//html模板路径
       favicon: './src/img/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
-      filename: './view/index.html', //生成的html存放路径，相对于path
+      filename: './view/home.html', //生成的html存放路径，相对于path
       inject: true, //js插入的位置，true/'head'/'body'/false
       hash: true, //为静态资源生成hash值
-      chunks: ['vendors', 'index'],//需要引入的chunk，不配置就会引入所有页面的资源
+      chunks: ['vendors', 'home'],//需要引入的chunk，不配置就会引入所有页面的资源
       minify: { //压缩HTML文件
         removeComments: true, //移除HTML中的注释
         collapseWhitespace: false //删除空白符与换行符
