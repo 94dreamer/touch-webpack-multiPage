@@ -39,7 +39,7 @@ module.exports = {
     path: `${__dirname}/dist`,
     //chunkFilename: 'chunk[id].js?ver' + new Date().getTime(),
     chunkFilename: 'chunk/chunk[id][name]-[chunkhash:6].js',
-    //publicPath: 'http://res2.esf.leju.com/t_web/dist/'
+    //publicPath: 'http://res2.esf.leju.com/new_leju/'
   },
   postcss: function () {
     return {
@@ -132,7 +132,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),//热加载
     new HtmlWebpackPlugin({
       template: './html/home.html',//html模板路径
-      favicon: './src/img/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
+      favicon: './favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
       filename: './view/home.html', //生成的html存放路径，相对于path
       inject: true, //js插入的位置，true/'head'/'body'/false
       hash: true, //为静态资源生成hash值
@@ -143,7 +143,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
-      favicon: './src/img/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
+      favicon: './favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
       filename: './view/detail.html', //生成的html存放路径，相对于path
       template: './html/detail.html', //html模板路径
       inject: true, //js插入的位置，true/'head'/'body'/false

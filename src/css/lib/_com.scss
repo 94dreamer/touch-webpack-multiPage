@@ -175,7 +175,7 @@ img {
 }
 
 /*通用背景路径*/
-$bg_pr: "../../images/";
+$bg_pr: "../../img/";
 $ver: '?t=2017011801';
 
 * {
@@ -190,3 +190,18 @@ $ver: '?t=2017011801';
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+/*图标*/
+
+.icon {
+  display: inline-block;
+  background: no-repeat center;
+  background-size: 100%;
+}
+
+.icon-v {
+  background-image: url(../../img/icon/v.png);
+  width: px2rem(17);
+  height: px2rem(15);
+}
+

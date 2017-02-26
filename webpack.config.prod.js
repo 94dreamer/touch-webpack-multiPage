@@ -28,7 +28,7 @@ module.exports = {
     path: `${__dirname}/dist`,
     //chunkFilename: 'chunk[id].js?ver' + new Date().getTime(),
     chunkFilename: 'chunk/chunk[id][name]-[chunkhash:6].js',
-    //publicPath: 'http://res2.esf.leju.com/t_web/dist/'
+    //publicPath: 'http://res2.esf.leju.com/new_leju/'
   },
   postcss: function () {
     return {
