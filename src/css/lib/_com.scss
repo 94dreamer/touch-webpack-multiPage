@@ -1,0 +1,192 @@
+@charset "UTF-8";
+
+html, body, header, section, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, img {
+  margin: 0;
+  padding: 0
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased; //抗锯齿
+}
+
+html, body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  //max-width: 750px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+.scroll-el {
+  overflow: auto;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block
+}
+
+a, button, input, optgroup, select, textarea {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /*去掉a input button 点击时的蓝色外边框和灰色半透明背景*/
+}
+
+a, img {
+  -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
+}
+
+//初始配置
+html {
+  font-size: 16px;
+  font-family: "Microsoft YaHei", "Hiragino Sans GB W3", "Heiti SC", Arial, sans-serif;
+  min-width: 320px;
+}
+
+//px转换rem
+@function px2rem($px) {
+  $rem: 75;
+  @return ($px/$rem) +rem;
+}
+
+input[type='text'], input[type='password'], input[type='search'] {
+  font-family: "Fakt";
+  font-weight: 400
+}
+
+h1, h2 {
+  font-size: 100%;
+  font-weight: normal
+}
+
+ul {
+  list-style: none
+}
+
+a {
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  blr: expression(this.onFocus=this.blur());
+}
+
+a:hover {
+  text-decoration: underline;
+  outline: 0
+}
+
+a:active {
+  text-decoration: none;
+  outline: 0
+}
+
+a:focus, input, textarea, button {
+  outline: 0
+}
+
+img {
+  border: 0 none;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic
+}
+
+/*显示消失*/
+.dn {
+  display: none !important
+}
+
+.db {
+  display: block
+}
+
+/*清除浮动*/
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+/*左右浮动*/
+.fl {
+  float: left;
+  display: inline
+}
+
+.fr {
+  float: right;
+  display: inline
+}
+
+/*定位*/
+.pr {
+  position: relative;
+  *zoom: 1
+}
+
+.pa {
+  position: absolute
+}
+
+.pf {
+  position: fixed
+}
+
+.ps {
+  position: static
+}
+
+/*弹性布局*/
+.g-line, .g-lastu {
+  overflow: auto;
+  overflow: visible;
+  _zoom: 1;
+}
+
+.g-u {
+  float: left;
+  _zoom: 1;
+}
+
+.g-lastu {
+  float: none;
+  _position: relative;
+  _left: -3px;
+  _margin-right: -3px;
+  width: auto;
+  overflow: hidden;
+  zoom: 1;
+}
+
+/*圆角*/
+@mixin b_r($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/*通用背景路径*/
+$bg_pr: "../../images/";
+$ver: '?t=2017011801';
+
+* {
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box; /* Safari */
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

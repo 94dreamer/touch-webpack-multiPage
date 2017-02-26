@@ -5,23 +5,12 @@ var path = require('path');
 var fs = require('fs');
 var webpack = require('webpack');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var autoprefixer = require('autoprefixer');
 //var precss = require('precss');//不用了吧
 
 module.exports = {
-  devServer: {
-    historyApiFallback: true,
-    host: 'localhost',
-    hot: true,
-    inline: true,
-    progress: true,
-    contentBase: './',
-    port: 8080
-  },
   devtools: 'cheap-module-eval-source-map',
   entry: {
     home: [
@@ -121,7 +110,7 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),//计算优化分配模块
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      __DEV__: true
+      __DEV__: false
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
@@ -129,35 +118,10 @@ module.exports = {
       "window.jQuery": "jquery"
     }),
     new webpack.NoErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),//热加载
-    new HtmlWebpackPlugin({
-      template: './html/home.html',//html模板路径
-      favicon: './src/img/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
-      filename: './view/home.html', //生成的html存放路径，相对于path
-      inject: true, //js插入的位置，true/'head'/'body'/false
-      hash: true, //为静态资源生成hash值
-      chunks: ['vendors', 'home'],//需要引入的chunk，不配置就会引入所有页面的资源
-      minify: { //压缩HTML文件
-        removeComments: true, //移除HTML中的注释
-        collapseWhitespace: false //删除空白符与换行符
-      }
-    }),
-    new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
-      favicon: './src/img/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
-      filename: './view/detail.html', //生成的html存放路径，相对于path
-      template: './html/detail.html', //html模板路径
-      inject: true, //js插入的位置，true/'head'/'body'/false
-      hash: true, //为静态资源生成hash值
-      chunks: ['vendors', 'detail'],//需要引入的chunk，不配置就会引入所有页面的资源
-      minify: { //压缩HTML文件
-        removeComments: true, //移除HTML中的注释
-        collapseWhitespace: false //删除空白符与换行符
+    new webpack.optimize.UglifyJsPlugin({//压缩
+      compressor: {
+        warnings: false
       }
     })
-    /*, new webpack.optimize.UglifyJsPlugin({//压缩
-     compressor: {
-     warnings: false
-     }
-     })*/
   ]
 };
