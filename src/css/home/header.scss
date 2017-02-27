@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import "../lib/com";
+//颜色
+$red: #dc3d39;
+
+$red2: #fa2434;
+
+$black: #393636;
+
+$gray: #dedede;
+$gray2: #ebebeb;
+
+$orange: #faa02f;
+
+.entry-nav-bar {
+  text-align: center;
+  background-color: #f6f6f6;
+  overflow: hidden;
+  transition: height 0.5s ease-in;
+  li {
+    height: px2rem(65);
+    line-height: px2rem(65);
+    float: left;
+    width: 14.28%;
+    font-size: px2rem(24);
+  }
+  a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: $black;
+  }
+  .hide-more-btn {
+    .icon {
+      transform: rotate(-90deg);
+    }
+  }
+  &.list-hide {
+    height: px2rem(65);
+  }
+}
+
+.title-header-bar {
+  position: relative;
+  background-color: $red2;
+  height: px2rem(88);
+  line-height: px2rem(88);
+  padding: 0 px2rem(10);
+  .turn-location {
+    padding: 0 px2rem(20);
+    color: #ffffff;
+    font-size: px2rem(28);
+    float: left;
+    .icon{
+      margin-right:px2rem(10);
+    }
+  }
+  .turn-leju {
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      height: px2rem(51);
+      width: px2rem(147);
+    }
+  }
+  .show-btn {
+    padding: 0 px2rem(20);
+    float: right;
+  }
+  .icon-user-head {
+    vertical-align: px2rem(-10);
+    background-image: url(../../img/home/user_head.png);
+    width: px2rem(36);
+    height: px2rem(36);
+  }
+}
+
+
+
+

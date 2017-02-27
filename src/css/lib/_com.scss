@@ -166,14 +166,6 @@ img {
   zoom: 1;
 }
 
-/*圆角*/
-@mixin b_r($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -o-border-radius: $radius;
-  border-radius: $radius;
-}
-
 /*通用背景路径*/
 $bg_pr: "../../img/";
 $ver: '?t=2017011801';
@@ -196,7 +188,7 @@ $ver: '?t=2017011801';
 .icon {
   display: inline-block;
   background: no-repeat center;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .icon-v {
@@ -205,3 +197,34 @@ $ver: '?t=2017011801';
   height: px2rem(15);
 }
 
+.icon-arrow-gray {
+  background-image: url(../../img/icon/arrow_gray.png);
+  width: px2rem(11);
+  height: px2rem(19);
+}
+.icon-arrow-white {
+  background-image: url(../../img/icon/arrow_white.png);
+  width: px2rem(19);
+  height: px2rem(12);
+}
+
+.icon-location{
+  background-image: url(../../img/icon/location_gray.png);
+  width: px2rem(20);
+  height: px2rem(27);
+}
+
+.icon-telephone{
+  background-image: url(../../img/icon/telephone.png);
+  width: px2rem(25);
+  height: px2rem(33);
+}
+
+
+
+.text-overflow {
+  width: 100%;
+  overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+  text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+  white-space: nowrap; /* 不换行 */
+}
