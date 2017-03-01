@@ -1,5 +1,7 @@
-/*
+/**
  * Swipe 2.0
+ *
+ * zhouzhen2017/3/1修改
  *
  * Brad Birdsall
  * Copyright 2013, MIT License
@@ -12,12 +14,12 @@ export default function Swipe(container, options) {
 
   // utilities
   var noop = function () {
-  }; // simple no operation function
+  }; // simple no operation function 简单没有功能的函数
   var offloadFn = function (fn) {
     setTimeout(fn || noop, 0)
-  }; // offload a functions execution
+  }; // offload a functions execution 卸载函数的执行
 
-  // check browser capabilities
+  // check browser capabilities 检查浏览器功能
   var browser = {
     addEventListener: !!window.addEventListener,
     touch: ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
@@ -28,7 +30,7 @@ export default function Swipe(container, options) {
     })(document.createElement('swipe'))
   };
 
-  // quit if no root element
+  // quit if no root element 如果没有根元素退出
   if (!container) return;
   var element = container.children[0];
   var slides, slidePos, width, length;

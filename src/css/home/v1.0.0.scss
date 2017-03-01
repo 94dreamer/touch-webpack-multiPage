@@ -110,11 +110,12 @@ body {
 .slider-nav-box {
   border-bottom: px2rem(1) solid $gray;
   background-color: #ffffff;
+  height: px2rem(430);
   .slider-control {
     text-align: center;
-    padding-bottom: 10px;
   }
   button{
+    vertical-align: top;
     border: px2rem(5) solid #ffffff;
     width: px2rem(22);
     height: px2rem(22);

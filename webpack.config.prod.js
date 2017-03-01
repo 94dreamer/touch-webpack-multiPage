@@ -24,8 +24,8 @@ module.exports = {
     vendors: ['jquery', 'fastclick', `${__dirname}/src/js/lib/spin.js`]
   },
   output: {
-    filename: '[name].js',
-    path: `${__dirname}/dist`,
+    filename: '[name][hash:6].js',
+    path: `${__dirname}/dist/js`,
     //chunkFilename: 'chunk[id].js?ver' + new Date().getTime(),
     chunkFilename: 'chunk/chunk[id][name]-[chunkhash:6].js',
     //publicPath: 'http://res2.esf.leju.com/new_leju/'
@@ -96,16 +96,16 @@ module.exports = {
   },
   plugins: [
     //require('autoprefixer'),
-    new ExtractTextPlugin("./css/[name].[id].css"),
+    new ExtractTextPlugin("../css/[name].[contenthash:6].[id].css"),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',// 将公共模块提取，生成名为`vendors`的chunk
       filename: 'vendors.js',
     }),
-    new webpack.optimize.CommonsChunkPlugin({
+    /*new webpack.optimize.CommonsChunkPlugin({
       name: 'commom',// 将公共模块提取，生成名为`vendors`的chunk
       chunks: ['home', 'detail'], //提取哪些模块共有的部分
       minChunks: 3
-    }),
+    }),*/
     new webpack.optimize.DedupePlugin(),//删除类似的重复代码
     new webpack.optimize.OccurrenceOrderPlugin(),//计算优化分配模块
     new webpack.DefinePlugin({

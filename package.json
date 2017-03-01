@@ -40,7 +40,9 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production && webpack --config webpack.config.prod.js",
     "dev": "cross-env NODE_ENV=development && webpack-dev-server --config webpack.config.dev.js",
-    "eslint": "eslint src"
+    "eslint": "eslint src",
+    "browser": "open http://localhost:8080/view/home.html",
+    "clean": "rm -rf dist"
   },
   "author": "zhouzhen",
   "license": "MIT"

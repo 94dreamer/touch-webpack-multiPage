@@ -6,19 +6,22 @@ html, body, header, section, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, 
 }
 
 html, body {
+  width: 100%;
   -webkit-font-smoothing: antialiased; //抗锯齿
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x:hidden;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Microsoft YaHei", "Hiragino Sans GB W3", "Heiti SC", Arial, sans-serif;
 }
 
 body {
   -webkit-overflow-scrolling: touch;
   margin: 0 auto;
-}
-
-.scroll-el {
-  overflow: auto;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
@@ -33,11 +36,8 @@ a, img {
   -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
 }
 
-//初始配置
-html {
-  overflow-x: hidden;
-  font-size: 16px;
-  font-family: "Microsoft YaHei", "Hiragino Sans GB W3", "Heiti SC", Arial, sans-serif;
+.scroll-el {
+  overflow: auto;
 }
 
 //px转换rem
