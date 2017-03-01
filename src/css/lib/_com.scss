@@ -7,9 +7,6 @@ html, body, header, section, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, 
 
 html, body {
   -webkit-font-smoothing: antialiased; //抗锯齿
-}
-
-html, body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -17,9 +14,6 @@ html, body {
 
 body {
   -webkit-overflow-scrolling: touch;
-  width: 100%;
-  //max-width: 750px;
-  min-width: 320px;
   margin: 0 auto;
 }
 
@@ -41,9 +35,9 @@ a, img {
 
 //初始配置
 html {
+  overflow-x: hidden;
   font-size: 16px;
   font-family: "Microsoft YaHei", "Hiragino Sans GB W3", "Heiti SC", Arial, sans-serif;
-  min-width: 320px;
 }
 
 //px转换rem
@@ -227,4 +221,12 @@ $ver: '?t=2017011801';
   overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
   text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
   white-space: nowrap; /* 不换行 */
+}
+
+.line2-overflow{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
