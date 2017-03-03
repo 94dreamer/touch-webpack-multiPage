@@ -11,7 +11,7 @@ html, body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 html {
@@ -21,7 +21,12 @@ html {
 
 body {
   -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
+  /* Disable certain interactions on touch devices */
+  -webkit-touch-callout: none;/*禁止长按链接与图片弹出菜单*/
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+  -webkit-highlight: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
@@ -45,6 +50,20 @@ a, img {
   $rem: 75;
   @return ($px/$rem) +rem;
 }
+
+@mixin font-dpr($font-size) {
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+/*@include font-dpr(28px)*/
 
 input[type='text'], input[type='password'], input[type='search'] {
   font-family: "Fakt";
@@ -196,25 +215,24 @@ $ver: '?t=2017011801';
   width: px2rem(11);
   height: px2rem(19);
 }
+
 .icon-arrow-white {
   background-image: url(../../img/icon/arrow_white.png);
   width: px2rem(19);
   height: px2rem(12);
 }
 
-.icon-location{
+.icon-location {
   background-image: url(../../img/icon/location_gray.png);
   width: px2rem(20);
   height: px2rem(27);
 }
 
-.icon-telephone{
+.icon-telephone {
   background-image: url(../../img/icon/telephone.png);
   width: px2rem(25);
   height: px2rem(33);
 }
-
-
 
 .text-overflow {
   width: 100%;
@@ -223,8 +241,8 @@ $ver: '?t=2017011801';
   white-space: nowrap; /* 不换行 */
 }
 
-.line2-overflow{
-  overflow : hidden;
+.line2-overflow {
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;

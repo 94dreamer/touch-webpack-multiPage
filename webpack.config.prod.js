@@ -21,7 +21,7 @@ module.exports = {
     detail: [
       './src/js/detail.js'
     ],
-    vendors: ['jquery', 'fastclick', `${__dirname}/src/js/lib/spin.js`]
+    vendors: ['jquery',`${__dirname}/src/js/lib/jquery.lazyload.js`,`${__dirname}/src/js/lib/spin.js`]
   },
   output: {
     filename: '[name][hash:6].js',

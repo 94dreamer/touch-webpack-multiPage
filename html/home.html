@@ -12,59 +12,16 @@
   <link href="" rel="apple-touch-icon-precomposed">
   <link href="" rel="Shortcut Icon" type="image/x-icon"/>
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
-  <!--<script src="http://res2.esf.leju.com/new_leju/src/js/lib/flexible.js"></script>-->
-  <script>!function () {
-    var a = "@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}", b = document.createElement("style");
-    if (document.getElementsByTagName("head")[0].appendChild(b), b.styleSheet) b.styleSheet.disabled || (b.styleSheet.cssText = a); else try {
-      b.innerHTML = a
-    } catch (c) {
-      b.innerText = a
-    }
-  }();
-  !function (a, b) {
-    function c() {
-      var b = f.getBoundingClientRect().width;
-      b / i > 540 && (b = 540 * i);
-      var c = b / 10;
-      f.style.fontSize = c + "px", k.rem = a.rem = c
-    }
-
-    var d, e = a.document, f = e.documentElement, g = e.querySelector('meta[name="viewport"]'), h = e.querySelector('meta[name="flexible"]'), i = 0, j = 0, k = b.flexible || (b.flexible = {});
-    if (g) {
-      console.warn("将根据已有的meta标签来设置缩放比例");
-      var l = g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
-      l && (j = parseFloat(l[1]), i = parseInt(1 / j))
-    } else if (h) {
-      var m = h.getAttribute("content");
-      if (m) {
-        var n = m.match(/initial\-dpr=([\d\.]+)/), o = m.match(/maximum\-dpr=([\d\.]+)/);
-        n && (i = parseFloat(n[1]), j = parseFloat((1 / i).toFixed(2))), o && (i = parseFloat(o[1]), j = parseFloat((1 / i).toFixed(2)))
-      }
-    }
-    if (!i && !j) {
-      var p = (a.navigator.appVersion.match(/android/gi), a.navigator.appVersion.match(/iphone/gi)), q = a.devicePixelRatio;
-      i = p ? q >= 3 && (!i || i >= 3) ? 3 : q >= 2 && (!i || i >= 2) ? 2 : 1 : 1, j = 1 / i
-    }
-    if (f.setAttribute("data-dpr", i), !g)if (g = e.createElement("meta"), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + j + ", maximum-scale=" + j + ", minimum-scale=" + j + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g); else {
-      var r = e.createElement("div");
-      r.appendChild(g), e.write(r.innerHTML)
-    }
-    a.addEventListener("resize", function () {
-      clearTimeout(d), d = setTimeout(c, 300)
-    }, !1), a.addEventListener("pageshow", function (a) {
-      a.persisted && (clearTimeout(d), d = setTimeout(c, 300))
-    }, !1), "complete" === e.readyState ? e.body.style.fontSize = 12 * i + "px" : e.addEventListener("DOMContentLoaded", function () {
-        e.body.style.fontSize = 12 * i + "px"
-      }, !1), c(), k.dpr = a.dpr = i, k.refreshRem = c, k.rem2px = function (a) {
-      var b = parseFloat(a) * this.rem;
-      return "string" == typeof a && a.match(/rem$/) && (b += "px"), b
-    }, k.px2rem = function (a) {
-      var b = parseFloat(a) / this.rem;
-      return "string" == typeof a && a.match(/px$/) && (b += "rem"), b
-    }
-  }(window, window.lib || (window.lib = {}));</script>
-  <!--减少http请求数，改为模版切入-->
+  <script src="http://res2.esf.leju.com/new_leju/src/js/lib/flexible.js"></script>
   <!--<script src="http://res2.esf.leju.com/new_leju/src/js/lib/vconsole.min.js"></script>-->
+  <script src="http://res2.esf.leju.com/new_leju/src/js/lib/fastclick.js"></script>
+  <script>
+    if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+      var attachFastClick = Origami.fastclick;
+      attachFastClick(document.body);
+    }, false);
+  }</script>
   <title>触屏构建Demo</title>
 </head>
 <body>
@@ -145,17 +102,32 @@
         <ul class="entry-icon-ul">
           <li>
             <a href="http://m.leju.com/touch/esf/bj/house/t5/" title="商业地产">
-              <i class="i-zyzj"></i>商业地产
+              <i class="i-sydc"></i>商业地产
             </a>
           </li>
           <li>
             <a href="http://m.leju.com/touch/esf/bj/delegate" title="业主委托">
-              <i class="i-gfzx"></i>业主委托
+              <i class="i-yzwt"></i>业主委托
             </a>
           </li>
           <li>
             <a href="http://m.leju.com/touch/esf/bj/jsq/" title="计算器">
-              <i class="i-ccj"></i>计算器
+              <i class="i-jsq"></i>计算器
+            </a>
+          </li>
+          <li>
+            <a href="http://m.leju.com/touch/esf/bj/news/" title="购房资讯">
+              <i class="i-gfzx-blue"></i>购房资讯
+            </a>
+          </li>
+          <li>
+            <a href="http://m.leju.com/touch/esf/bj/map/" title="地图找房">
+              <i class="i-dtzf-red"></i>地图找房
+            </a>
+          </li>
+          <li>
+            <a href="http://m.leju.com/touch/esf/bj/community/" title="小区房价">
+              <i class="i-xqfj-blue"></i>小区房价
             </a>
           </li>
         </ul>
@@ -169,12 +141,12 @@
 </nav>
 <section class="live-house-box home-section"><!--出现多个同样的a标签链接是为了增加连接数，增强SEO-->
   <header><img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_title.png" alt="直播真房源，看房模式新体验"></header>
-  <nav class="clearfix">
-    <div class="active">精选直播房源</div>
+  <nav id="house-tab" class="clearfix">
+    <div class="active" data-tab="1">精选直播房源</div>
     <i class="left-active"></i>
-    <div>精选直播小区</div>
+    <div data-tab="2">精选直播小区</div>
   </nav>
-  <ul class="live-house-list">
+  <ul data-tabid="1" class="active live-house-list">
     <li class="live-house-li">
       <article>
         <a href="{{$url}}">
@@ -190,7 +162,7 @@
       </article>
       <figure>
         <a href="{{$url}}">
-          <img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
+          <img id="img1" src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
         </a>
       </figure>
     </li>
@@ -209,7 +181,7 @@
       </article>
       <figure>
         <a href="{{$url}}">
-          <img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
+          <img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
         </a>
       </figure>
     </li>
@@ -228,7 +200,67 @@
       </article>
       <figure>
         <a href="{{$url}}">
-          <img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
+          <img id="img2" src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
+        </a>
+      </figure>
+    </li>
+  </ul>
+  <ul data-tabid="2" class="live-house-list">
+    <li class="live-house-li">
+      <article>
+        <a href="{{$url}}">
+          <span class="live-h-tit">2后现代城</span>
+          <span class="live-h-msg">2两室一厅/101平</span>
+          <span class="live-h-mas">2张梦露</span>
+          <strong class="live-h-price"><span>500</span>万</strong>
+        </a>
+        <dl class="confirm-house">
+          <dt>中原地产</dt>
+          <dd><i class="icon icon-v"></i>认证真房源</dd>
+        </dl>
+      </article>
+      <figure>
+        <a href="{{$url}}">
+          <img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://assets.jq22.com/plugin/pc-b107dc52-2db4-11e4-954d-000c29f61318.png" alt="live_house_demo" ／>
+        </a>
+      </figure>
+    </li>
+    <li class="live-house-li">
+      <article>
+        <a href="{{$url}}">
+          <span class="live-h-tit">后现代城</span>
+          <span class="live-h-msg">两室一厅/101平</span>
+          <span class="live-h-mas">张梦露</span>
+          <strong class="live-h-price"><span>500</span>万</strong>
+        </a>
+        <dl class="confirm-house">
+          <dt>中原地产</dt>
+          <dd><i class="icon icon-v"></i>认证真房源</dd>
+        </dl>
+      </article>
+      <figure>
+        <a href="{{$url}}">
+          <img  id="img3" src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
+        </a>
+      </figure>
+    </li>
+    <li class="live-house-li">
+      <article>
+        <a href="{{$url}}">
+          <span class="live-h-tit">后现代城</span>
+          <span class="live-h-msg">两室一厅/101平</span>
+          <span class="live-h-mas">张梦露</span>
+          <strong class="live-h-price"><span>500</span>万</strong>
+        </a>
+        <dl class="confirm-house">
+          <dt>中原地产</dt>
+          <dd><i class="icon icon-v"></i>认证真房源</dd>
+          <dd><i class="icon icon-v"></i>认证真房源</dd>
+        </dl>
+      </article>
+      <figure>
+        <a href="{{$url}}">
+          <img id="img4" src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://img2.imgtn.bdimg.com/it/u=2884017517,3741687017&fm=21&gp=0.jpg" alt="live_house_demo" ／>
         </a>
       </figure>
     </li>
@@ -242,6 +274,7 @@
     <li class="easy-house-msf"><a href="{{$url}}"><strong>免税房</strong><span>省钱不商量</span></a></li>
     <li class="easy-house-djf"><a href="{{$url}}"><strong>低价房</strong><span>超值房价</span></a></li>
     <li class="easy-house-dtf"><a href="{{$url}}"><strong>电梯房</strong><span>通勤的早晨</span></a></li>
+    <li class="easy-house-dt"><a href="{{$url}}"><strong>地铁房</strong><span>通勤的早晨</span></a></li>
   </ul>
   <a class="watch-more-btn" href="{{$url}}">查看更多<i class="icon icon-arrow-gray"></i></a>
 </section>
@@ -253,7 +286,7 @@
         <dt><a href="{{$url}}">城市地产项12312312312目被叫停扩围 <span class="red-flag-text">要闻</span></a></dt>
         <dd><a href="{{$url}}">北京下月实现跨省买房不要钱民生保障12312312312男士短裤静安寺都看得开飒飒是政府工作的重，老百姓就业</a></dd>
       </dl>
-      <a class="message-fig" href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/home/new_demo.jpg"
+      <a class="message-fig" href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/new_demo.jpg"
                                                   alt="城市地产项目"></a>
     </li>
     <li>
@@ -261,7 +294,7 @@
         <dt><a href="{{$url}}">城市地产项目被叫停扩围 <span class="red-flag-text">要闻</span></a></dt>
         <dd><a href="{{$url}}">北京下月实现跨省买房不要钱民生保障是政府工作的重，老百姓就业</a></dd>
       </dl>
-      <a class="message-fig" href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/home/new_demo.jpg"
+      <a class="message-fig" href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/new_demo.jpg"
                                                   alt="城市地产项目"></a>
     </li>
     <li>
@@ -269,7 +302,7 @@
         <dt><a href="{{$url}}">城市地产项目被叫停扩围 <span class="red-flag-text">要闻</span></a></dt>
         <dd><a href="{{$url}}">北京下月实现跨省买房不要钱民生保障是政府工作的重，老百姓就业</a></dd>
       </dl>
-      <a class="message-fig" href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/home/new_demo.jpg"
+      <a class="message-fig" href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/new_demo.jpg"
                                                   alt="城市地产项目"></a>
     </li>
   </ul>
@@ -299,7 +332,7 @@
   <h4 class="box-title">猜你喜欢</h4>
   <ul class="favorite-list">
     <li>
-      <figure><a href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
+      <figure><a href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
                                       alt="{{$alt}}"></a></figure>
       <article>
         <a class="" href="{{$url}}">
@@ -314,7 +347,7 @@
       </article>
     </li>
     <li>
-      <figure><a href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
+      <figure><a href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
                                       alt="{{$alt}}"></a></figure>
       <article>
         <a class="" href="{{$url}}">
@@ -328,7 +361,7 @@
       </article>
     </li>
     <li>
-      <figure><a href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
+      <figure><a href="{{$url}}"><img src="http://res2.esf.leju.com/new_leju/src/img/default.png" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
                                       alt="{{$alt}}"></a></figure>
       <article>
         <a class="" href="{{$url}}">

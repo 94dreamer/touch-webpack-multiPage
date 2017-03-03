@@ -32,13 +32,14 @@ module.exports = {
     detail: [
       './src/js/detail.js'
     ],
-    vendors: ['jquery', 'fastclick', `${__dirname}/src/js/lib/spin.js`]
+    vendors: ['jquery', `${__dirname}/src/js/lib/jquery.lazyload.js`,`${__dirname}/src/js/lib/spin.js`]
   },
   output: {
     filename: '[name].js',
     path: `${__dirname}/dist/js`,
     //chunkFilename: 'chunk[id].js?ver' + new Date().getTime(),
-    chunkFilename: 'chunk/chunk[id][name]-[chunkhash:6].js',
+    //chunkFilename: 'chunk/chunk[id][name]-[chunkhash:6].js',
+    chunkFilename: 'chunk/chunk[id][name].js',
     //publicPath: 'http://res2.esf.leju.com/new_leju/'
   },
   postcss: function () {

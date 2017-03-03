@@ -114,7 +114,7 @@ body {
   .slider-control {
     text-align: center;
   }
-  button{
+  button {
     vertical-align: top;
     border: px2rem(5) solid #ffffff;
     width: px2rem(22);
@@ -122,7 +122,7 @@ body {
     border-radius: 50%;
     background-color: #eaeff3;
   }
-  .current{
+  .current {
     background-color: #ff6b63;
   }
 }
@@ -133,6 +133,7 @@ body {
   background-color: #ffffff;
   display: table;
   li {
+    height: px2rem(180);
     width: 25%;
     padding: px2rem(20);
     float: left;
@@ -150,47 +151,92 @@ body {
       height: px2rem(94);
       width: px2rem(94);
       border-radius: px2rem(40);
-      background: no-repeat center;
+      background-repeat: no-repeat;
     }
     .i-esf {
       background-color: #ffa630;
       background-image: url(../../img/home/home_esf.png);
       background-size: px2rem(53) px2rem(54);
+      background-position: px2rem(19) px2rem(21);
+
     }
     .i-zf {
       background-color: #fe6a69;
       background-image: url(../../img/home/home_zf.png);
       background-size: px2rem(61) px2rem(50);
+      background-position: px2rem(18) px2rem(20);
     }
     .i-xqfj {
       background-color: #918afe;
       background-image: url(../../img/home/home_xqfj.png);
       background-size: px2rem(61) px2rem(49);
+      background-position: px2rem(16) px2rem(20);
     }
     .i-zyzj {
       background-color: #85a8ff;
       background-image: url(../../img/home/home_zyzj.png);
       background-size: px2rem(62) px2rem(52);
+      background-position: px2rem(18) px2rem(21);
     }
     .i-gfzx {
       background-color: #fcf2e6;
       background-image: url(../../img/home/home_gfzx.png);
       background-size: px2rem(52) px2rem(51);
+      background-position: px2rem(21) px2rem(25);
     }
     .i-ccj {
       background-color: #fee8eb;
       background-image: url(../../img/home/home_ccj.png);
       background-size: px2rem(51) px2rem(60);
+      background-position: px2rem(23) px2rem(17);
     }
     .i-dtzf {
       background-color: #efeeff;
       background-image: url(../../img/home/home_dtzf.png);
       background-size: px2rem(52) px2rem(52);
+      background-position: px2rem(24) px2rem(22);
     }
     .i-bnzf {
       background-color: #e5f1ff;
       background-image: url(../../img/home/home_bnzf.png);
       background-size: px2rem(50) px2rem(53);
+      background-position: px2rem(23) px2rem(21);
+    }
+    .i-sydc {
+      background-color: #fce7f4;
+      background-image: url(../../img/home/home_sydc.png);
+      background-size: px2rem(55) px2rem(55);
+      background-position: px2rem(22) px2rem(20);
+    }
+    .i-jsq {
+      background-color: #fceee6;
+      background-image: url(../../img/home/home_jsq.png);
+      background-size: px2rem(60) px2rem(57);
+      background-position: px2rem(17) px2rem(20);
+    }
+    .i-yzwt {
+      background-color: #fee8ee;
+      background-image: url(../../img/home/home_yzwt.png);
+      background-size: px2rem(49) px2rem(56);
+      background-position: px2rem(25) px2rem(22);
+    }
+    .i-gfzx-blue{
+      background-color: #75b7fc;
+      background-image: url(../../img/home/home_gfzx_blue.png);
+      background-size: px2rem(63) px2rem(58);
+      background-position: px2rem(15) px2rem(19);
+    }
+    .i-dtzf-red{
+      background-color: #fe75be;
+      background-image: url(../../img/home/home_dtzf_red.png);
+      background-size: px2rem(66) px2rem(69);
+      background-position: center px2rem(16);
+    }
+    .i-xqfj-blue{
+      background-color: #def4fd;
+      background-image: url(../../img/home/home_xqfj_blue.png);
+      background-size: px2rem(60) px2rem(54);
+      background-position: px2rem(18) px2rem(20);
     }
 
   }
@@ -236,7 +282,7 @@ body {
       box-shadow: px2rem(3) px2rem(-3) px2rem(18) px2rem(3) rgba(228, 228, 228, 0.75);
       &::after {
         content: "";
-        width: 110%;
+        width: 100%;
         height: px2rem(26);
         position: absolute;
         background: #ffffff;
@@ -246,6 +292,8 @@ body {
       }
       &:last-child {
         &::after {
+          width: 100%;
+          left: auto;
           right: 0;
         }
       }
@@ -257,18 +305,22 @@ body {
       float: left;
       left: 50%;
       top: px2rem(-1);
-      //margin-left: px2rem(-23.5);
-      width: px2rem(47);
-      height: px2rem(76);
-      background: url(../../img/home/live_house_hr.png) no-repeat;
+      margin-left: px2rem(-40);
+      width: px2rem(80);
+      height: px2rem(80);
+      background: url(../../img/home/live_house_hr.jpg) no-repeat;
       background-size: 100%;
-      .right-active {
+      &.right-active {
         transform: rotateY(180deg);
       }
     }
   }
   .live-house-list {
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease-in;
     margin: 0 px2rem(30);
+    padding-bottom: px2rem(10);
     border: px2rem(1) solid $gray2;
     border-top: none;
     position: relative;
@@ -301,7 +353,7 @@ body {
       padding-left: px2rem(15);
       .live-h-tit {
         @extend .text-overflow;
-        padding: px2rem(15) 0 px2rem(10);
+        padding: px2rem(18) 0 px2rem(10);
         display: block;
         font-weight: bold;
         font-size: px2rem(30);
@@ -316,13 +368,13 @@ body {
       }
       .live-h-mas {
         @extend .text-overflow;
-        line-height: px2rem(40);
+        line-height: px2rem(46);
         display: block;
         color: #a3a3a3;
         font-size: px2rem(28);
       }
       .live-h-price {
-        padding: px2rem(20) 0 px2rem(10);
+        padding: px2rem(20) 0 px2rem(8);
         display: block;
         color: #ff4e49;
         font-size: px2rem(38);
@@ -335,7 +387,8 @@ body {
     }
     figure {
       position: relative;
-      float: left;
+      float: right;
+      margin-right: px2rem(8);
       border-radius: px2rem(4);
       overflow: hidden;
       width: px2rem(434);
@@ -358,6 +411,10 @@ body {
         margin-top: px2rem(-41);
       }
     }
+    &.active{
+      opacity: 1;
+      display: block;
+    }
   }
 }
 
@@ -377,7 +434,7 @@ body {
       &:nth-child(odd) {
         margin-right: 1.5%;
       }
-      &:nth-last-child(2) {
+      &:nth-last-child(2),&:last-child {
         margin-bottom: 0;
       }
     }
@@ -393,6 +450,9 @@ body {
     }
     .easy-house-dtf {
       background-image: url(../../img/home/easy_dtf.jpg);
+    }
+    .easy-house-dt {
+      background-image: url(../../img/home/easy_dt.jpg);
     }
     a {
       display: block;
@@ -419,8 +479,10 @@ body {
 .house-message-box {
   padding: 0 px2rem(30);
   .house-message-list {
+    margin-top: px2rem(-3);
     li {
-      overflow: hidden;
+      display: table;
+      width: 100%;
       border-bottom: px2rem(1) solid #e6e6e6;
       padding: px2rem(30) 0;
       &:first-child {
@@ -433,23 +495,23 @@ body {
     }
     dl {
       float: left;
-      width: 64%;
+      width: 67%;
     }
     dt {
-      padding-bottom: px2rem(10);
       font-size: px2rem(30);
       font-weight: bold;
+      margin-top: px2rem(-7);
       a {
         display: inline-block;
         position: relative;
-        padding-right: 16%;
+        padding-right: 24%;
         color: $black;
         @extend .text-overflow;
       }
       span {
-        right: 0;
+        right: px2rem(26);
         position: absolute;
-        top: px2rem(6);
+        top: px2rem(7);
       }
     }
     dd {
@@ -463,8 +525,8 @@ body {
     .message-fig {
       border-radius: px2rem(4);
       overflow: hidden;
-      //width: 32%;
-      width: px2rem(220);
+      width: 32%;
+      //width: px2rem(220);
       height: px2rem(150);
       float: right;
       img {
@@ -481,18 +543,20 @@ body {
 .hot-choose-box {
   padding: 0 px2rem(30);
   .hot-choose-list {
+    margin-top: px2rem(-4);
+    margin-bottom: px2rem(-10);
     li {
       position: relative;
       line-height: px2rem(54);
       padding-right: px2rem(90);
-      height: px2rem(58);
+      height: px2rem(54);
       overflow: hidden;
       &:not(:last-child) {
         margin-bottom: px2rem(20);
       }
-      .show-more {
-        overflow: visible;
-      }
+    }
+    .show-more {
+      height: auto;
     }
     a {
       color: #666666;
@@ -541,6 +605,7 @@ body {
   padding: 0 px2rem(30);
   .favorite-list {
     li {
+      width: 100%;
       position: relative;
       display: table;
       border-bottom: px2rem(1) solid #e6e6e6;
