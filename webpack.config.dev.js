@@ -32,7 +32,7 @@ module.exports = {
     detail: [
       './src/js/detail.js'
     ],
-    vendors: ['jquery', `${__dirname}/src/js/lib/jquery.lazyload.js`,`${__dirname}/src/js/lib/spin.js`]
+    vendors: ['jquery', `${__dirname}/src/js/lib/jquery.lazyload.js`,`${__dirname}/src/js/lib/baiduTemplate.js`,`${__dirname}/src/js/lib/spin.js`]
   },
   output: {
     filename: '[name].js',
@@ -107,7 +107,7 @@ module.exports = {
     ]
   },
   plugins: [
-    //require('autoprefixer'),
+    require('autoprefixer'),
     new ExtractTextPlugin("./css/[name].[id].css"),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',// 将公共模块提取，生成名为`vendors`的chunk
@@ -155,10 +155,8 @@ module.exports = {
         collapseWhitespace: false //删除空白符与换行符
       }
     })
-    /*, new webpack.optimize.UglifyJsPlugin({//压缩
-     compressor: {
-     warnings: false
-     }
-     })*/
   ]
 };
+
+
+console.log(process.env.NODE_ENV)

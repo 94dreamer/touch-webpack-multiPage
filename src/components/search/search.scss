@@ -1,0 +1,418 @@
+@charset "utf-8";
+
+/*px转换rem*/
+@function px2rem($px) {
+  $rem: 75;
+  @return ($px/$rem) +rem;
+}
+
+@mixin font-dpr($font-size) {
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+/*@include font-dpr(28px)*/
+
+$bg_pr:"../../img/";
+
+
+/*清浮动*/
+.clearfix:after, .l-fix:after, .hd:after, .g-line:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.ov {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.body_bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 100%;
+  overflow: hidden;
+  background: #f4f6f3;
+}
+
+#scroller,#scroller2,#scroller3,#scroller4{
+  position: relative;
+  overflow: hidden;
+  width: 100%!important;
+  box-sizing: border-box;
+}
+.new_search {
+  margin: 0 auto;
+  /*搜索器*/
+  .search_input {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: px2rem(88);
+    line-height: px2rem(88);
+    width: 100%;
+    background: #f71c2c;
+    box-sizing: border-box;
+    padding: px2rem(12) 0;
+  }
+  #closeSearch {
+    display: block;
+    width: px2rem(76);
+    background: url(#{$bg_pr}/home/search/0.png) no-repeat center;
+    background-size: px2rem(15) px2rem(28);
+  }
+  .search_btn {
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: px2rem(110);
+    font-size: px2rem(28);
+    text-align: center;
+    line-height: px2rem(64);
+    color: #fff!important;
+  }
+  .input_out {
+    position: relative;
+    height: px2rem(62);
+    border: 1px solid #e0e0e0;
+    border-radius: px2rem(8);
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    background:#fff url(#{$bg_pr}/home/search/1.png) no-repeat px2rem(20);
+    background-size: px2rem(26) px2rem(27);
+    input {
+      border: none;
+      outline: 0;
+      -webkit-appearance: none;
+      width: 88%;
+      height: 100%;
+      float: left;
+      margin-left: px2rem(60);
+      vertical-align: top;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: px2rem(28);
+      color: #333;
+    }
+    .i_closeBtn {
+      position: absolute;
+      display: none;
+      width: px2rem(28);
+      right: 0;
+      top: 0;
+      padding: px2rem(32);
+      height: px2rem(28);
+      float: right;
+      background: url(#{$bg_pr}/icon/close.png) no-repeat center;
+      background-size: px2rem(28) px2rem(28);
+    }
+  }
+  /*选项卡*/
+  .tab_part {
+    position: relative;
+    box-sizing: border-box;
+    padding:px2rem(20) px2rem(30);
+    background: #fff;
+    .pa {
+      position: relative;
+      height: px2rem(74);
+    }
+    .borderRadiusLeft {
+      border-top-left-radius:px2rem(6);
+      border-bottom-left-radius: px2rem(8);
+    }
+    .borderRadiusRight {
+      border-top-right-radius: px2rem(6);
+      border-bottom-right-radius: px2rem(8);
+    }
+    .red_bg {
+      position: absolute;
+      display: none;
+      top: 1px;
+      left: 0;
+      height: px2rem(74);
+      width: 25%;
+      background-color: #f71c2c;
+      z-index: 5;
+    }
+    ul {
+      position: absolute;
+      width: 100%;
+      height: px2rem(76);
+      line-height: px2rem(74);
+      background: transparent;
+      border: 1px solid #e0e0e0;
+      border-radius: px2rem(8);
+      z-index: 10;
+    }
+    li {
+      display: block;
+      float: left;
+      width: 25%;
+      text-align: center;
+      border-right: 1px solid #e0e0e0;
+      &:last-child {
+        border-right: none;
+      }
+    }
+    a {
+      display: block;
+      color: #666;
+      font-size: px2rem(28);
+    }
+  }
+  /*高亮*/
+  .c_000 {
+    color: #ff5252 !important;
+  }
+  .history_part, .search_result_part {
+    position: relative;
+    display: none;
+    background: #fff;
+    .area, .plate, .detail, .subway, .name, ._pos {
+      display: flex;
+      box-sizing: border-box;
+      padding-left: px2rem(60);
+      em {
+        display: block;
+        flex: 1;
+        font-size: px2rem(28);
+        color: #333;
+        text-indent: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .tr {
+        font-size: px2rem(26);
+        color: #999;
+        text-align: right;
+      }
+    }
+    .area {
+
+      background: url(#{$bg_pr}/home/search/6.png) no-repeat;
+    }
+    .plate {
+
+      background: url(#{$bg_pr}/home/search/8.png) no-repeat;
+    }
+    .detail, ._pos {
+      background: url(#{$bg_pr}/home/search/7.png) no-repeat;
+    }
+    .subway {
+      background: url(#{$bg_pr}/home/search/subway.png) no-repeat;
+      background-size: px2rem(42) px2rem(36);
+    }
+    .name {
+      background: url(#{$bg_pr}/home/search/name.png) no-repeat;
+      background-size: px2rem(40) px2rem(40);
+    }
+    div {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      ul{
+        width: 100%;
+        z-index: 1;
+        -webkit-tap-highlight-color: transparent;
+        padding: 0 px2rem(30);
+        background: #fff;
+        transform: translateZ(0);
+        -webkit-touch-callout: none;
+        user-select: none;
+        text-size-adjust: none;
+        box-sizing: border-box;
+      }
+    }
+    li {
+      border-bottom: 1px solid #e0e0e0;
+      font-size: px2rem(26);
+      text-indent: px2rem(30);
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    a {
+      line-height: px2rem(88);
+      color: #999;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p {
+      font-size: px2rem(24);
+      line-height: px2rem(24);
+      background: #fff;
+      padding-bottom: px2rem(16);
+      padding-left: px2rem(28);
+      margin-top: px2rem(-16);
+      color: #999;
+    }
+    /*清除结果*/
+    .clean_result {
+      display: none;
+      font-size: px2rem(24);
+      color: #666 !important;
+      line-height: px2rem(30);
+      height: px2rem(30);
+      background: #fff url(#{$bg_pr}/home/search/5.png) no-repeat;
+      box-sizing: border-box;
+      padding: 0 px2rem(30);
+      span {
+        &:before {
+          display: inline-block;
+          width: px2rem(28);
+          height: px2rem(24);
+          margin-right: px2rem(4);
+          vertical-align: top;
+          background:url(#{$bg_pr}/home/search/4.png) no-repeat;
+          content: "";
+        }
+      }
+    }
+  }
+  .search_result_part {
+    position: relative;
+  }
+  .history_part {
+    div {
+      display: none;
+    }
+    .history_sale {
+      display: block;
+    }
+  }
+  /*推荐标签*/
+  .recommend_tab {
+    box-sizing: border-box;
+    padding: 0 px2rem(30);
+    /**/
+    h4 {
+      display: block;
+      font-size: px2rem(24);
+      color: #666;
+      text-indent: px2rem(32);
+      height: px2rem(84);
+      line-height: px2rem(84);
+      background: url(#{$bg_pr}/home/search/3.png) no-repeat left;
+      background-size: px2rem(21) px2rem(26);
+    }
+    .nearby {
+      background-position: 0 -68px;
+    }
+    ul {
+      max-height: px2rem(132);
+      overflow: hidden;
+    }
+    li {
+      display: block;
+      float: left;
+      max-width: 31%;
+      height: px2rem(50);
+      line-height: px2rem(50);
+      background: #fff;
+      text-align: center;
+      font-size: px2rem(24);
+      padding: 0 px2rem(22);
+      overflow: hidden;
+      border: 1px solid #d1d1d1;
+      border-radius: px2rem(24);
+      margin-bottom: px2rem(16);
+      margin-right: px2rem(16);
+    }
+    a {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      color: #333;
+    }
+  }
+  .colorWhite {
+    color: #fff !important;
+  }
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
+
+@-webkit-keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.slideOutRight {
+  animation-name: slideOutRight;
+}
+
+.animated {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+}
+
+
+
+
+
+

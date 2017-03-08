@@ -45,7 +45,7 @@ a, img {
   overflow: auto;
 }
 
-//px转换rem
+/*px转换rem*/
 @function px2rem($px) {
   $rem: 75;
   @return ($px/$rem) +rem;

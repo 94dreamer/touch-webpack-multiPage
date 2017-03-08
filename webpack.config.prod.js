@@ -5,12 +5,30 @@ var path = require('path');
 var fs = require('fs');
 var webpack = require('webpack');
 
+
+const isOnline = (process.env.NODE_ENV === 'online');
+
+var AssetsPlugin = require('assets-webpack-plugin');//生成文件路径JSON的插件
+var assetsPluginInstance = new AssetsPlugin({
+  filename: isOnline ? 'assets_online.json' : 'assets_dev.json',
+  path: path.join(__dirname),
+  //includeManifest: 'manifest',
+  //prettyPrint: true,//美化输出
+  /*processOutput: function (assets) {//格式化输出
+   return 'window.staticMap = ' + JSON.stringify(assets)
+   }*/
+  update: true,//非覆盖式更新
+  metadata: {version: 123}//注入额外版本号
+
+});
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var autoprefixer = require('autoprefixer');
-//var precss = require('precss');//不用了吧
 
-module.exports = {
+var WebpackMd5Hash = require('webpack-md5-hash');
+
+const settings = {
   devtools: 'cheap-module-eval-source-map',
   entry: {
     home: [
@@ -21,14 +39,14 @@ module.exports = {
     detail: [
       './src/js/detail.js'
     ],
-    vendors: ['jquery',`${__dirname}/src/js/lib/jquery.lazyload.js`,`${__dirname}/src/js/lib/spin.js`]
+    vendors: ['jquery', `${__dirname}/src/js/lib/jquery.lazyload.js`, `${__dirname}/src/js/lib/baiduTemplate.js`, `${__dirname}/src/js/lib/spin.js`]
   },
   output: {
-    filename: '[name][hash:6].js',
-    path: `${__dirname}/dist/js`,
-    //chunkFilename: 'chunk[id].js?ver' + new Date().getTime(),
-    chunkFilename: 'chunk/chunk[id][name]-[chunkhash:6].js',
-    //publicPath: 'http://res2.esf.leju.com/new_leju/'
+    filename: isOnline ? '[name].[chunkhash:6].js' : '[name].js?[chunkhash:6]',//[hash:6]用来管理整体版本，可以用来表示文件夹
+    //filename: '[name].js',
+    path: `${__dirname}/dist/`,
+    chunkFilename: isOnline ? 'chunk/[id][name]-[chunkhash:6].js' : 'chunk/[id][name].js?[chunkhash:6]',
+    publicPath: 'http://res2.esf.leju.com/new_leju/dist/'
   },
   postcss: function () {
     return {
@@ -95,17 +113,21 @@ module.exports = {
     ]
   },
   plugins: [
-    //require('autoprefixer'),
-    new ExtractTextPlugin("../css/[name].[contenthash:6].[id].css"),
+    assetsPluginInstance,
+    require('autoprefixer'),
+    new WebpackMd5Hash(),
+    new ExtractTextPlugin(path.join('css', isOnline ? '[name].[contenthash:6].[id].css' : '[name].[id].css?[contenthash:6]')),
+    //new ExtractTextPlugin("../css/[name].[id].css"),
     new webpack.optimize.CommonsChunkPlugin({
+      //names: ['vendors', 'manifest']
       name: 'vendors',// 将公共模块提取，生成名为`vendors`的chunk
-      filename: 'vendors.js',
+      //filename: "[name].[chunkhash:6].js"
     }),
     /*new webpack.optimize.CommonsChunkPlugin({
-      name: 'commom',// 将公共模块提取，生成名为`vendors`的chunk
-      chunks: ['home', 'detail'], //提取哪些模块共有的部分
-      minChunks: 3
-    }),*/
+     name: 'commom',// 将公共模块提取，生成名为`vendors`的chunk
+     chunks: ['home', 'detail'], //提取哪些模块共有的部分
+     minChunks: 3
+     }),*/
     new webpack.optimize.DedupePlugin(),//删除类似的重复代码
     new webpack.optimize.OccurrenceOrderPlugin(),//计算优化分配模块
     new webpack.DefinePlugin({
@@ -117,11 +139,18 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery"
     }),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.UglifyJsPlugin({//压缩
-      compressor: {
-        warnings: false
-      }
-    })
+    new webpack.NoErrorsPlugin()
   ]
 };
+
+process.env.NODE_ENV && settings.plugins.push(
+  new webpack.optimize.UglifyJsPlugin({//压缩
+    compressor: {
+      warnings: false
+    }
+  })
+);
+
+console.log(process.env.NODE_ENV);
+
+module.exports = settings;
