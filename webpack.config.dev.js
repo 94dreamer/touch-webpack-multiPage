@@ -25,14 +25,12 @@ module.exports = {
   devtools: 'cheap-module-eval-source-map',
   entry: {
     home: [
-      /*'webpack-dev-server/client?http://localhost:8080',
-       'webpack/hot/dev-server',*/
-      './src/js/home.js'
+      './src/home/home.js'
     ],
     detail: [
-      './src/js/detail.js'
+      './src/detail/detail.js'
     ],
-    vendors: ['jquery', `${__dirname}/src/js/lib/jquery.lazyload.js`,`${__dirname}/src/js/lib/baiduTemplate.js`,`${__dirname}/src/js/lib/spin.js`]
+    vendors: ['jquery', `${__dirname}/src/lib/jquery.lazyload.js`, `${__dirname}/src/lib/baiduTemplate.js`, `${__dirname}/src/lib/spin.js`]
   },
   output: {
     filename: '[name].js',

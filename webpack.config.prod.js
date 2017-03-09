@@ -11,7 +11,8 @@ const isOnline = (process.env.NODE_ENV === 'online');
 var AssetsPlugin = require('assets-webpack-plugin');//生成文件路径JSON的插件
 var assetsPluginInstance = new AssetsPlugin({
   filename: isOnline ? 'assets_online.json' : 'assets_dev.json',
-  path: path.join(__dirname),
+  // path: path.join(__dirname),
+  path: `${__dirname}/../../merge_eju/application/touch/`,
   //includeManifest: 'manifest',
   //prettyPrint: true,//美化输出
   /*processOutput: function (assets) {//格式化输出
@@ -31,12 +32,12 @@ const settings = {
   devtools: 'cheap-module-eval-source-map',
   entry: {
     home: [
-      './src/js/home.js'
+      './src/home/home.js'
     ],
     detail: [
-      './src/js/detail.js'
+      './src/detail/detail.js'
     ],
-    vendors: ['jquery', `${__dirname}/src/js/lib/jquery.lazyload.js`, `${__dirname}/src/js/lib/baiduTemplate.js`, `${__dirname}/src/js/lib/spin.js`]
+    vendors: ['jquery', `${__dirname}/src/lib/jquery.lazyload.js`, `${__dirname}/src/lib/baiduTemplate.js`, `${__dirname}/src/lib/spin.js`]
   },
   output: {
     filename: isOnline ? '[name].[chunkhash:6].js' : '[name].js?[chunkhash:6]',//[hash:6]用来管理整体版本，可以用来表示文件夹

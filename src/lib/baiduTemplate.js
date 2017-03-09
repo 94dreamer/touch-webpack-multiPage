@@ -8,13 +8,15 @@
  * @return 如果无data，直接返回编译后的函数；如果有data，返回html。
  * @author wangxiao
  * @email 1988wangxiao@gmail.com
+ * zhouzhen 修改
  */
 
 ;(function(window){
 
   //取得浏览器环境的baidu命名空间，非浏览器环境符合commonjs规范exports出去
   //修正在nodejs环境下，采用baidu.template变量名
-  var baidu = typeof module === 'undefined' ? (window.baidu = window.baidu || {}) : module.exports;
+  //var baidu = typeof module === 'undefined' ? (window.baidu = window.baidu || {}) : module.exports;
+  var baidu = (window.baidu = window.baidu || {});
 
   //模板函数（放置于baidu.template命名空间下）
   baidu.template = function(str, data){
