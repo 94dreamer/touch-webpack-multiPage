@@ -19,7 +19,6 @@ var assetsPluginInstance = new AssetsPlugin({
    }*/
   update: true,//非覆盖式更新
   metadata: {version: 123}//注入额外版本号
-
 });
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -32,8 +31,6 @@ const settings = {
   devtools: 'cheap-module-eval-source-map',
   entry: {
     home: [
-      /*'webpack-dev-server/client?http://localhost:8080',
-       'webpack/hot/dev-server',*/
       './src/js/home.js'
     ],
     detail: [
@@ -121,7 +118,7 @@ const settings = {
     new webpack.optimize.CommonsChunkPlugin({
       //names: ['vendors', 'manifest']
       name: 'vendors',// 将公共模块提取，生成名为`vendors`的chunk
-      //filename: "[name].[chunkhash:6].js"
+      filename: isOnline ? "[name].[chunkhash:6].js" : "[name].js?[chunkhash:6]"
     }),
     /*new webpack.optimize.CommonsChunkPlugin({
      name: 'commom',// 将公共模块提取，生成名为`vendors`的chunk

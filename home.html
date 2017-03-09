@@ -3,18 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-  <meta content="yes" name="apple-touch-fullscreen"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="yes" name="apple-touch-fullscreen">
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
-  <meta content="telephone=no,email=no" name="format-detection"/>
-  <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes"/>
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
   <link href="" rel="apple-touch-icon-precomposed">
-  <link href="" rel="Shortcut Icon" type="image/x-icon"/>
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+  <link href="" rel="Shortcut Icon" type="image/x-icon">
+  <link rel="manifest" href="assets.json">
   <script src="http://res2.esf.leju.com/new_leju/src/js/lib/flexible.js"></script>
-  <script src="http://res2.esf.leju.com/new_leju/src/js/lib/vconsole.rem.js"></script>
-  <script src="http://res2.esf.leju.com/new_leju/src/js/lib/fastclick.js"></script>
   <script>
     if ('addEventListener' in document) {
       document.addEventListener('DOMContentLoaded', function () {
@@ -39,9 +37,12 @@
     var level2_page = page2;
     var custom_id = '';
     var pagedefine = '100';
-
   </script>
   <title>触屏构建Demo</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="./dist/css/home.de4911.1.css" rel="stylesheet">
+  <script src="http://res2.esf.leju.com/new_leju/src/js/lib/fastclick.js"></script>
+  <script src="http://res2.esf.leju.com/new_leju/src/js/lib/vconsole.rem.js"></script>
 </head>
 <body>
 <ul class="entry-nav-bar list-hide">
@@ -76,12 +77,12 @@
   </div>
 </header>
 <div class="home-search-box">
-  <input type="text" placeholder="请输入小区名称、地址" value="" disabled >
+  <input type="text" placeholder="请输入小区名称、地址" value="" disabled>
 </div>
-<!--入口导航滑屏-->
+
 <nav class="slider-nav-box">
-  <div id='slider' class='swipe'>
-    <div class='swipe-wrap'>
+  <div id="slider" class="swipe">
+    <div class="swipe-wrap">
       <div>
         <ul class="entry-icon-ul">
           <li>
@@ -168,8 +169,8 @@
     <button></button>
   </div>
 </nav>
-<!--直播房源-->
-<section class="live-house-box home-section"><!--出现多个同样的a标签链接是为了增加连接数，增强SEO-->
+
+<section class="live-house-box home-section">
   <header><img src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_title.png" alt="直播真房源，看房模式新体验"></header>
   <nav id="house-tab" class="clearfix">
     <div class="active" data-tab="1">精选直播房源</div>
@@ -192,8 +193,8 @@
       </article>
       <figure>
         <a href="{{$url}}">
-          <img src=""
-               data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png" alt="live_house_demo" ／>
+          <img src="" data-src="http://res2.esf.leju.com/new_leju/src/img/home/live_house_demo.png"
+               alt="live_house_demo" ／>
         </a>
       </figure>
     </li>
@@ -232,8 +233,7 @@
       </article>
       <figure>
         <a href="{{$url}}">
-          <img src=""
-               data-src="http://assets.jq22.com/plugin/pc-b107dc52-2db4-11e4-954d-000c29f61318.png"
+          <img src="" data-src="http://assets.jq22.com/plugin/pc-b107dc52-2db4-11e4-954d-000c29f61318.png"
                alt="live_house_demo" ／>
         </a>
       </figure>
@@ -306,7 +306,7 @@
   <a class="watch-more-btn" data-tabid="1" href="{{$url}}">查看更多<i class="icon icon-arrow-gray"></i></a>
   <a class="watch-more-btn dn" data-tabid="2" href="{{$url}}">查看更多<i class="icon icon-arrow-gray"></i></a>
 </section>
-<!--便捷找房-->
+
 <section class="easy-house-box home-section">
   <h4 class="box-title">便捷找房</h4>
   <ul class="easy-house-list">
@@ -320,8 +320,8 @@
   </ul>
   <a class="watch-more-btn" href="{{$url}}">查看更多<i class="icon icon-arrow-gray"></i></a>
 </section>
-<!--购房资讯-->
-<section class="house-message-box home-section"><!--出现多个同样的a标签链接是为了增加连接数，增强SEO-->
+
+<section class="house-message-box home-section">
   <h4 class="box-title">购房资讯</h4>
   <ul class="house-message-list">
     <li>
@@ -372,29 +372,29 @@
   </ul>
   <a class="watch-more-btn" href="{{$url}}">查看更多<i class="icon icon-arrow-gray"></i></a>
 </section>
-<!--热门筛选-->
-<section class="hot-choose-box home-section"><!--出现多个同样的a标签链接是为了增加连接数，增强SEO-->
+
+<section class="hot-choose-box home-section">
   <h4 class="box-title">热门筛选</h4>
   <ul class="hot-choose-list">
     <li>
       <button class="show-choose-btn"><i class="icon icon-arrow-gray"></i></button>
-      <a href="{{$url}}">附近<i class="icon icon-location"></i></a><a href="{{$url}}">海淀</a></a><a
-      href="{{$url}}">西城</a></a><a href="{{$url}}">宣武</a></a><a href="{{$url}}">大兴</a><a href="{{$url}}">东城</a>
+      <a href="{{$url}}">附近<i class="icon icon-location"></i></a><a href="{{$url}}">海淀</a><a href="{{$url}}">西城</a><a
+      href="{{$url}}">宣武</a><a href="{{$url}}">大兴</a><a href="{{$url}}">东城</a>
     </li>
     <li>
       <button class="show-choose-btn"><i class="icon icon-arrow-gray"></i></button>
-      <a href="{{$url}}">200万以下</a><a href="{{$url}}">200-500万</a></a><a href="{{$url}}">1000万以上</a>
+      <a href="{{$url}}">200万以下</a><a href="{{$url}}">200-500万</a><a href="{{$url}}">1000万以上</a>
     </li>
     <li>
       <button class="show-choose-btn"><i class="icon icon-arrow-gray"></i></button>
-      <a href="{{$url}}">一室</a><a href="{{$url}}">二室</a></a><a href="{{$url}}">三室</a></a><a href="{{$url}}">四室</a><a
+      <a href="{{$url}}">一室</a><a href="{{$url}}">二室</a><a href="{{$url}}">三室</a><a href="{{$url}}">四室</a><a
       href="{{$url}}">五室</a>
     </li>
   </ul>
   <a class="watch-more-btn" href="{{$url}}">查看更多<i class="icon icon-arrow-gray"></i></a>
 </section>
-<!--猜你喜欢-->
-<section class="favorite-box home-section"><!--出现多个同样的a标签链接是为了增加连接数，增强SEO-->
+
+<section class="favorite-box home-section">
   <h4 class="box-title">猜你喜欢</h4>
   <ul class="favorite-list">
     <li>
@@ -410,7 +410,8 @@
           <span class="flag-line"><span class="red-flag-text">学区房</span><span class="red-flag-text">满五唯一</span><span
             class="red-flag-text">满五唯一</span></span>
         </a>
-        <a class="house-tel-btn" data-name="" data-moblie="" href="tel:{{$telnumber}}"><i class="icon icon-telephone"></i></a>
+        <a class="house-tel-btn" data-name="" data-moblie="" href="tel:{{$telnumber}}"><i
+          class="icon icon-telephone"></i></a>
       </article>
     </li>
     <li>
@@ -425,7 +426,8 @@
           <strong class="favorite-price"><span class="price-number">500</span>万</strong>
           <span class="flag-line"><span class="red-flag-text">学区房</span><span class="red-flag-text">满五唯一</span></span>
         </a>
-        <a class="house-tel-btn" data-name="" data-moblie="" href="tel:{{$telnumber}}"><i class="icon icon-telephone"></i></a>
+        <a class="house-tel-btn" data-name="" data-moblie="" href="tel:{{$telnumber}}"><i
+          class="icon icon-telephone"></i></a>
       </article>
     </li>
     <li>
@@ -448,7 +450,7 @@
 </section>
 <footer class="footer">
   <p class="footer-house">house</p>
-  <a onclick="gotoTop();return false;" class="go-top dn" style="display: block;">返回顶部</a>
+  <a onclick="gotoTop();return false;" class="go-top dn" style="display: block">返回顶部</a>
   <nav class="footer-nav">
     <a href="http://m.leju.com/touch/esf/bj">首页</a>
     <a href="http://m.leju.com/touch/esf/bj/house">二手房</a>
@@ -464,11 +466,11 @@
   <p>2017新浪乐居</p>
 </footer>
 
-<!--搜索弹出层-->
+
 <div id="wrapper_search" class="body_bg">
   <section id="scroller_search" class="new_search">
     <div class="wrapper_scroller_in">
-      <!--搜索器-->
+
       <div class="search_input">
         <a href="javascript:void(0)" id="closeSearch" class="search_back_btn"></a>
         <div class="input_out">
@@ -477,12 +479,12 @@
         </div>
         <a href="javascript:void(0)" class="search_btn">搜索</a>
       </div>
-      <!--选项卡-->
+
       <div class="tab_box">
         <div class="tab_part">
           <div class="pa">
             <ul class="clearfix">
-              <li><a href="javascript:void(0)" class="colorWhite" data-shtype='sale'>二手房</a></li>
+              <li><a href="javascript:void(0)" class="colorWhite" data-shtype="sale">二手房</a></li>
               <li><a href="javascript:void(0)" class="" data-shtype="rent">租房</a></li>
               <li><a href="javascript:void(0)" class="" data-shtype="home">小区房价</a></li>
               <li><a href="javascript:void(0)" class="" data-shtype="agent">置业专家</a></li>
@@ -539,7 +541,7 @@
           </div>
         </div>
       </div>
-      <!--热门小区-->
+
       <div class="recommend_tab">
         <h4 class="nearby">热门小区</h4>
         <ul class="clearfix">
@@ -549,6 +551,13 @@
     </div>
   </section>
 </div>
-<!--搜索弹出层 END-->
+<script>
+  {assets.entries.home.js}
+</script>
+<script>
+  {assets.home.js}
+</script>
+<script type="text/javascript" src="./dist/js/vendors.js"></script>
+<script type="text/javascript" src="./dist/js/home.js"></script>
 </body>
 </html>

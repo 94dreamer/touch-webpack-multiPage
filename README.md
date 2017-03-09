@@ -9,10 +9,13 @@
 
 ### 如何使用
 
-* `npm run dev` 执行开发环境，然后打开`localhost:8080/view/`,就可以了。
-* `npm run build` 执行生产环境，代码会被压缩。
+* `watch` 监听文件改变,提交时需要停止,并执行 `npm run buid` 或者 `npm run online`
+* `npm run build` 执行外测环境提交代码，代码会被压缩。
+* `npm run online` 执行线上环境提交代码，代码会被压缩。
+* `npm run dev` 执行开发环境，然后打开`localhost:8080/view/`或者执行`npm run browser`,就可以了。
+* `npm run browser` 使用打开dev浏览器。
 * `npm run eslint` 使用eslint检查代码。
-* `npm run clean` 清空编译文件
+* `npm run clean` 清空编译文件！！慎用
 
 ### 切图
 
@@ -24,21 +27,28 @@
 
 以前的时间戳控制版本号可以，但是不是最好的选择（如果文件名基于内容而定，而且文件名是唯一的，HTTP 报头会建议在所有可能的地方（CDN，ISP，网络设备，网页浏览器）存储一份该文件的副本。）
 
-配合html-webpack-plugin自动引入 或者是 assets-webpack-plugin ，生成了 assets.json文件让php服务器读取脚本配置文件，吐到模版变量。
+配合html-webpack-plugin自动引入 或者是 assets-webpack-plugin ，生成了 assets.json文件让php服务器读取脚本配置文件，吐到smarty模版变量。
+> 优点
 
+```
 配置超长时间的本地缓存 —— 节省带宽，提高性能
 采用内容摘要作为缓存更新依据 —— 精确的缓存控制
 更资源发布路径实现非覆盖式发布 —— 平滑升级
 先发静态 再发布html。
+```
+
+* php实现的关键代码是 `file_get_contents()` 函数
 
 
 > 突然想到会有一个问题 assets.json放在php目录下 不能随时提交且绑定host走静态资源
 
 解决办法：
 
-* 服务器加个url参数 assets=dev 就读取 assets.dev.json 的配置，这份配置的脚本不带任何版本号，否则默认读取 assets.json。
+* 服务器加个url参数 assets=dev ,或者让php服务器判断外测或者线上环境变量，读取 assets.dev.json 的配置，这份配置的脚本不带任何版本号，否则线上默认读取 assets.json。
 * fidder正则匹配来代理
 
-file_get_contents() 函数
+仍然没解决的问题就是 img图片的md5
 
-任然没解决的问题就是 img图片的md5
+### 开发
+
+https://github.com/apeatling/web-pull-to-refresh下拉更新https://github.com/zhangchen2397/infiniteScrollPage无限下拉 分页http://developer.51cto.com/art/201505/476334.htmhttps://github.com/ximan/dropload下拉加载数据https://github.com/WittBulter/taobaoScroller模仿手机淘宝的上下拉加载https://github.com/pklauzinski/jscroll滚动加载https://github.com/ximan/dropload下拉加载https://github.com/Alex-fun/vue-listvue-list 列表滚动
