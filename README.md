@@ -51,4 +51,6 @@
 
 ### 开发
 
-https://github.com/apeatling/web-pull-to-refresh下拉更新https://github.com/zhangchen2397/infiniteScrollPage无限下拉 分页http://developer.51cto.com/art/201505/476334.htmhttps://github.com/ximan/dropload下拉加载数据https://github.com/WittBulter/taobaoScroller模仿手机淘宝的上下拉加载https://github.com/pklauzinski/jscroll滚动加载https://github.com/ximan/dropload下拉加载https://github.com/Alex-fun/vue-listvue-list 列表滚动
+- search组件还可以优化 不请求
+- 各种统计脚本还可以优化
+
