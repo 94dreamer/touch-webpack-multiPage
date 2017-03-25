@@ -9,7 +9,7 @@
 
 ### 如何使用
 
-* `watch` 监听文件改变,提交时需要停止,并执行 `npm run buid` 或者 `npm run online`
+* `npm run watch` 监听文件改变,提交时需要停止,并执行 `npm run buid` 或者 `npm run online`
 * `npm run build` 执行外测环境提交代码，代码会被压缩。
 * `npm run online` 执行线上环境提交代码，代码会被压缩。
 * `npm run dev` 执行开发环境，然后打开`localhost:8080/view/`或者执行`npm run browser`,就可以了。
